@@ -1,0 +1,234 @@
+{% include 'header.html' %}
+
+{% block content%}
+    <div class="container-fluid">
+                    <div class="mb-3">
+                        <h3 class="fw-bold fs-4 mb-3">Admin Dashboard</h3>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item">Dashboard</li>
+                        </ol>
+                    </div>
+
+                    <div class="row ">
+                        <!-- card 1 -->
+                        <div class="col-12 col-md-3">
+                            <div class="card shadow border-0 card-1">
+                                <div class="card-body card-a py-4">
+                                    <h6 class="mb-2 fw-bold">
+                                        Members
+                                    </h6>
+                                    <div class="fw-bold mb-2 d-flex justify-content-between align-items-center">
+                                        <div>89</div>
+                                        <div class="card-con con-1">
+                                            <i class='bxr  bx-user'  ></i> 
+                                        </div>
+                                    </div>
+                                    <div class="mb-0">
+                                        <span class="badge text-success me-2">
+                                            +9.0%
+                                        </span>
+                                        <span class="fw-bold rec">
+                                            2025
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- card 2 -->
+                        <div class="col-12 col-md-3">
+                            <div class="card shadow border-0 card-2">
+                                <div class="card-body card-b py-4">
+                                    <h6 class="mb-2 fw-bold">
+                                       Visitors
+                                    </h6>
+                                    <div class="fw-bold mb-2 d-flex justify-content-between align-items-center">
+                                        <div>89</div>
+                                        <div class="card-con con-2">
+                                            <i class='bxr  bx-user'  ></i> 
+                                        </div>
+                                    </div>
+                                    <div class="mb-0">
+                                        <span class="badge text-success me-2">
+                                            +9.0%
+                                        </span>
+                                        <span class="fw-bold rec">
+                                            2025
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- card 3 -->
+                        <div class="col-12 col-md-3">
+                            <div class="card shadow border-0 card-3">
+                                <div class="card-body card-c py-4">
+                                    <h6 class="mb-2 fw-bold">
+                                        Served Packages
+                                    </h6>
+                                    <div class="fw-bold mb-2 d-flex justify-content-between align-items-center">
+                                        <div>89</div>
+                                        <div class="card-con con-3">
+                                            <i class='bxr  bx-gift'  ></i> 
+                                        </div>
+                                    </div>
+                                    <div class="mb-0">
+                                        <!-- <span class="badge text-success me-2">
+                                            +9.0%
+                                        </span> -->
+                                        <span class="fw-bold rec text-success">
+                                            recorded today
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- card 4 -->
+                        <div class="col-12 col-md-3">
+                            <div class="card shadow border-0 card-0">
+                                <div class="card-body card-d py-4">
+                                    <h6 class="mb-2 fw-bold">
+                                        Rejected packs
+                                    </h6>
+                                    <div class="fw-bold mb-2 d-flex justify-content-between align-items-center">
+                                        <div>89</div>
+                                        <div class="card-con con-4">
+                                            <i class='bxr  bx-gift'  ></i> 
+                                        </div>
+                                    </div>
+                                    <div class="mb-0">
+                                        <!-- <span class="badge text-success me-2">
+                                            +9.0%
+                                        </span> -->
+                                        <span class="fw-bold rec text-success">
+                                            recorded today
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                            
+                            <div class="col-12 col-md-6 my-3">
+                                <h3 class="fw-bold fs-4 my-5">Registry Summary</h3>
+                            <div class="card mb-4 border-0 shadow">
+                            <!-- <div class="card-header">
+                                <i class='bxr  bx-table'  ></i> 
+                                    Registry 
+                                </div> -->
+                            <div class="card-body table-responsive">
+                                <table id="example" class="table table-striped tab-siz">
+                                    <thead>
+                                        <tr class="highlight">
+                                            <th>RID</th>
+                                            <th>Name</th>
+                                            <th>Contact</th>
+                                            <th>Family</th>
+                                            <th>Membership</th>
+                                        </tr>
+                                    </thead>
+                                
+                                    <tbody>
+                                        <tr>
+                                            <td>Tiger Nixon</td>
+                                            <td>System Architect</td>
+                                            <td>Edinburgh</td>
+                                            <td>Yes</td>
+                                            <td>
+                                                <p class="badge text-bg-success text-center">Member</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Garrett Winters</td>
+                                            <td>Accountant</td>
+                                            <td>Tokyo</td>
+                                            <td>No</td>
+                                            <td>
+                                                <p class="badge text-bg-warning text-center">Visitor</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ashton Cox</td>
+                                            <td>Junior Technical Author</td>
+                                            <td>San Francisco</td>
+                                            <td>Yes</td>
+                                            <td>
+                                                <p class="badge text-bg-success  text-center">Member</p>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cedric Kelly</td>
+                                            <td>Senior Javascript Developer</td>
+                                            <td>Edinburgh</td>
+                                            <td>No</td>
+                                            <td>
+                                                <p class="badge text-bg-warning text-center">Visitor</p>
+                                            </td>                                         
+                                        </tr>  
+
+                                        <tr>
+                                            <td>Ashton Cox</td>
+                                            <td>Junior Technical Author</td>
+                                            <td>San Francisco</td>
+                                            <td>Yes</td>
+                                            <td>
+                                                <p class="badge text-bg-success  text-center">Member</p>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Cedric Kelly</td>
+                                            <td>Senior Javascript Developer</td>
+                                            <td>Edinburgh</td>
+                                            <td>No</td>
+                                            <td>
+                                                <p class="badge text-bg-warning text-center">Visitor</p>
+                                            </td>                                         
+                                        </tr>  
+                                        <tr>
+                                            <td>Ashton Cox</td>
+                                            <td>Junior Technical Author</td>
+                                            <td>San Francisco</td>
+                                            <td>Yes</td>
+                                            <td>
+                                                <p class="badge text-bg-success  text-center">Member</p>
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Cedric Kelly</td>
+                                            <td>Senior Javascript Developer</td>
+                                            <td>Edinburgh</td>
+                                            <td>No</td>
+                                            <td>
+                                                <p class="badge text-bg-warning text-center">Visitor</p>
+                                            </td>                                         
+                                        </tr>  
+                                    </tbody>
+                                </table>
+                            </div>
+                            </div>
+                            </div>
+
+                            <div class="col-12 col-md-6 my-3">
+                                <h3 class="h3 fw-bold fs-4 my-5">
+                                    Reports Overview
+                                </h3>
+                                <div class="card mb-4 border-0 shadow p-2">
+                                    <!-- <div class="card-header">
+                                        <i class='bxr  bx-bar-chart'  ></i> 
+                                        Area Chart
+                                    </div> -->
+                                <div class="card-body"></div><canvas id="bar-chart-grouped" width="800" height="450"></canvas></div>
+                            </div>
+                    </div>
+
+                </div>
+            
+{% endblock%}
+
+
+{% include 'footer.html' %}

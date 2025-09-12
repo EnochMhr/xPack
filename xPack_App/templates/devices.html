@@ -1,0 +1,208 @@
+{% include 'header.html' %}
+
+{% block content%}
+   <div class="container-fluid">
+                    <div class="mb-3">
+                        <h3 class="fw-bold fs-4 mb-3">Manage Devices</h3>
+                         <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="{% url  'dashboard'%}">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Manage Devices</li>
+                        </ol>
+                    </div>
+              
+                           <!-- Button trigger modal -->
+                            <button type="button" class="reg mb-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                                    <span><i class='bxr  bx-plus'  ></i> </span>
+                                    <span>Add Registrar</span>                            
+                            </button>
+
+                            <!-- Modal -->
+                            <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">New Registrar</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form" action="">
+
+                                            <!-- Name -->
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control focus-ring focus-ring-light" id="name" name="name" placeholder="" autocomplete="off" required>
+                                                    <label for="name">Full Name</label>
+                                                </div>
+
+                                                <!-- Contact -->
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control focus-ring focus-ring-light" id="contact" name="name" placeholder="" autocomplete="off" required>
+                                                    <label for="name">Contact</label>
+                                                </div>
+
+                                                <!-- password -->
+                                                <div class="form-floating mb-3">
+                                                    <input type="password" class="form-control focus-ring focus-ring-light" id="user_pwd_reg" name="password" placeholder="" autocomplete="off" required readonly>
+                                                    <label for="email">password</label>
+                                                    <div class="gen-button text-white mt-2 text-center" id="generate_pwd_btn_reg">Generate</div>
+                                                </div>
+
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="button" class="reg">Add</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                    
+                            </div>
+                            </div>
+
+                        <div class="card mb-4 border-0 shadow">
+                            <!-- <div class="card-header">
+                                <i class='bxr  bx-table'  ></i> 
+                                    Registry 
+                                </div> -->
+                            <div class="card-body table-responsive">
+                                <table id="example" class="table table-striped tab-siz">
+                                    <thead>
+                                        <tr class="highlight">
+                                            <th>DID</th>
+                                            <th>Name</th>
+                                            <th>Contact</th>
+                                            <th>Password</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                
+                                    <tbody>
+                                        <tr>
+                                            <td>Tiger Nixon</td>
+                                            <td>System Architect</td>
+                                            <td>Edinburgh</td>
+                                            <td>Yes</td>
+                                            <td>
+                                                <i class='bxr  bx-trash tr-can  me-4'  ></i> 
+                                                <i class='bxr  bx-edit tr-edit' ></i> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Garrett Winters</td>
+                                            <td>Accountant</td>
+                                            <td>Tokyo</td>
+                                            <td>No</td>
+                                             <td>
+                                                <i class='bxr  bx-trash tr-can  me-4'  ></i> 
+                                                <i class='bxr  bx-edit tr-edit' ></i> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Ashton Cox</td>
+                                            <td>Junior Technical Author</td>
+                                            <td>San Francisco</td>
+                                            <td>Yes</td>
+                                             <td>
+                                                <i class='bxr  bx-trash tr-can  me-4'  ></i> 
+                                                <i class='bxr  bx-edit tr-edit' ></i> 
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td>Cedric Kelly</td>
+                                            <td>Senior Javascript Developer</td>
+                                            <td>Edinburgh</td>
+                                            <td>No</td>
+                                             <td>
+                                                <i class='bxr  bx-trash tr-can  me-4'  ></i> 
+                                                <i class='bxr  bx-edit tr-edit' ></i> 
+                                            </td>                                         
+                                        </tr>  
+
+                                        <tr>
+                                            <td>Ashton Cox</td>
+                                            <td>Junior Technical Author</td>
+                                            <td>San Francisco</td>
+                                            <td>Yes</td>
+                                             <td>
+                                                <i class='bxr  bx-trash tr-can  me-4'  ></i> 
+                                                <i class='bxr  bx-edit tr-edit' ></i> 
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Cedric Kelly</td>
+                                            <td>Senior Javascript Developer</td>
+                                            <td>Edinburgh</td>
+                                            <td>No</td>
+                                            <td>
+                                                <i class='bxr  bx-trash tr-can  me-4'  ></i> 
+                                                <i class='bxr  bx-edit tr-edit' ></i> 
+                                            </td>                                        
+                                        </tr>  
+                                        <tr>
+                                            <td>Ashton Cox</td>
+                                            <td>Junior Technical Author</td>
+                                            <td>San Francisco</td>
+                                            <td>Yes</td>
+                                             <td>
+                                                <i class='bxr  bx-trash tr-can  me-4'  ></i> 
+                                                <i class='bxr  bx-edit tr-edit' ></i> 
+                                            </td>
+                                        </tr>
+
+                                        <tr>
+                                            <td>Cedric Kelly</td>
+                                            <td>Senior Javascript Developer</td>
+                                            <td>Edinburgh</td>
+                                            <td>No</td>
+                                            <td>
+                                                <i class='bxr  bx-trash tr-can me-4'  ></i> 
+                                                <i class='bxr  bx-edit tr-edit' ></i> 
+                                            </td>                                         
+                                        </tr>  
+                                    </tbody>
+                                </table>
+                            </div>
+                            </div>
+
+            
+{% endblock%}
+
+<script>
+        new DataTable('#example',{ lengthMenu: [5, 10, 25, 50, -1]});
+    </script>
+
+    <script>
+            const reg_gen_pwd = document.getElementById("generate_pwd_btn_reg");
+        
+            const reg_gen_input = document.getElementById("user_pwd_reg");
+
+            gen(reg_gen_pwd, reg_gen_input)
+
+        function gen(genbtn, genInput) {
+        if (genbtn) {
+            genbtn.addEventListener("click", function () {
+            const characters =
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            const passwordLength = 8;
+            let password = "";
+
+            for (let i = 0; i < passwordLength; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                password += characters[randomIndex];
+            }
+
+            //input that stores generated pwd
+            console.log(password)
+                genInput.value = password;
+            
+            });
+
+ 
+            }
+            }
+            </script>
+
+
+
+{% include 'footer.html' %}
+

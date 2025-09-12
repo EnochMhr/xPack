@@ -1,0 +1,87 @@
+{% load static %}
+{% include 'header.html' %}
+
+{% block content%}
+
+            <div class="mb-3">
+                        <h3 class="fw-bold fs-4 mb-3">Tech Support</h3>
+                         <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="{% url  'dashboard'%}">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Tech Support</li>
+                        </ol>
+                    </div>
+
+                <div class="row">
+                    <div class=" col-lg-4 col-sm-6">
+                        <div class="card border-0 shadow cards-animation">
+                            <img src="{% static '/images/icons/ava.jpg' %}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    {phone number}
+                                </p>
+                                <h5>Allan Arinda</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-lg-4 col-sm-6">
+                        <div class="card border-0 shadow cards-animation">
+                            <img src="{% static '/images/icons/ava.jpg' %}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    {phone number}
+                                </p>
+                                <h5>Timothy Marvin</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-lg-4 col-sm-6">
+                         <div class="card border-0 shadow cards-animation">
+                            <img src="{% static '/images/icons/ava.jpg' %}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                               <p class="card-text">
+                                    {phone number}
+                                </p>
+                                <h5>Felix Edrine</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-lg-4 col-sm-6">
+                         <div class="card border-0 shadow cards-animation" >
+                           <img src="{% static '/images/icons/ava.jpg' %}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    {phone number}
+                                </p>
+                                <h5>Esther Astar</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                         <div class="card border-0 shadow cards-animation" >
+                            <img src="{% static '/images/icons/ava.jpg' %}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    {Phone Number}
+                                </p>
+                                <h5>Marion Martha</h5>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" col-lg-4 col-sm-6">
+                         <div class="card border-0 shadow cards-animation" >
+                            <img src="{% static '/images/icons/ava.jpg' %}" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <p class="card-text">
+                                    {phone number}
+                                </p>
+                                <h5>Enoch Ayebare</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+           
+            
+{% endblock%}
+
+
+{% include 'footer.html' %}
