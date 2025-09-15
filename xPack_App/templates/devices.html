@@ -11,13 +11,13 @@
                     </div>
               
                            <!-- Button trigger modal -->
-                            <button type="button" class="reg mb-4" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                            <button type="button" class="reg mb-4">
                                     <span><i class='bxr  bx-plus'  ></i> </span>
                                     <span>Add Registrar</span>                            
                             </button>
 
                             <!-- Modal -->
-                            <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <!-- <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered">
                                 <div class="modal-content">
                                 <div class="modal-header">
@@ -25,21 +25,22 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    <form class="form" action="">
+                                    <form class="form" method="POST" action="">
+                                        {% csrf_token %}
 
-                                            <!-- Name -->
+                                            <!- Name --
                                                 <div class="form-floating mb-3">
                                                     <input type="text" class="form-control focus-ring focus-ring-light" id="name" name="name" placeholder="" autocomplete="off" required>
                                                     <label for="name">Full Name</label>
                                                 </div>
 
-                                                <!-- Contact -->
+                                                <!- Contact --
                                                 <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control focus-ring focus-ring-light" id="contact" name="name" placeholder="" autocomplete="off" required>
+                                                    <input type="text" class="form-control focus-ring focus-ring-light" id="contact" name="contact" placeholder="" autocomplete="off" required>
                                                     <label for="name">Contact</label>
                                                 </div>
 
-                                                <!-- password -->
+                                                <-- password --
                                                 <div class="form-floating mb-3">
                                                     <input type="password" class="form-control focus-ring focus-ring-light" id="user_pwd_reg" name="password" placeholder="" autocomplete="off" required readonly>
                                                     <label for="email">password</label>
@@ -50,13 +51,13 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="button" class="reg">Add</button>
+                                            <button type="submit" name="submit" class="reg">Add</button>
                                         </div>
                                     </form>
                                 </div>
                                     
                             </div>
-                            </div>
+                            </div> -->
 
                         <div class="card mb-4 border-0 shadow">
                             <!-- <div class="card-header">
@@ -73,27 +74,31 @@
                                             <th>Password</th>
                                             <th>Action</th>
                                         </tr>
+                                       
                                     </thead>
                                 
                                     <tbody>
+                                        {%for reg in all%}
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>Yes</td>
+                                            <td>{{forloop.counter}}</td>
+                                            <td>{{reg.name}}</td>
+                                            <td>{{reg.contact}}</td>
+                                            <td>{{reg.password}}</td>
                                             <td>
-                                                <i class='bxr  bx-trash tr-can  me-4'  ></i> 
-                                                <i class='bxr  bx-edit tr-edit' ></i> 
+                                                <button>
+                                                    <i class='bxr  bx-trash tr-can '  ></i> 
+                                                </button>
+                                             
                                             </td>
                                         </tr>
-                                        <tr>
+                                         {%endfor%}
+                                        <!-- <tr>
                                             <td>Garrett Winters</td>
                                             <td>Accountant</td>
                                             <td>Tokyo</td>
                                             <td>No</td>
                                              <td>
-                                                <i class='bxr  bx-trash tr-can  me-4'  ></i> 
-                                                <i class='bxr  bx-edit tr-edit' ></i> 
+                                                <i class='bxr  bx-trash tr-can '  ></i> 
                                             </td>
                                         </tr>
                                         <tr>
@@ -102,8 +107,7 @@
                                             <td>San Francisco</td>
                                             <td>Yes</td>
                                              <td>
-                                                <i class='bxr  bx-trash tr-can  me-4'  ></i> 
-                                                <i class='bxr  bx-edit tr-edit' ></i> 
+                                                <i class='bxr  bx-trash tr-can '  ></i> 
                                             </td>
                                         </tr>
                                         <tr>
@@ -112,8 +116,7 @@
                                             <td>Edinburgh</td>
                                             <td>No</td>
                                              <td>
-                                                <i class='bxr  bx-trash tr-can  me-4'  ></i> 
-                                                <i class='bxr  bx-edit tr-edit' ></i> 
+                                                <i class='bxr  bx-trash tr-can '  ></i> 
                                             </td>                                         
                                         </tr>  
 
@@ -123,8 +126,7 @@
                                             <td>San Francisco</td>
                                             <td>Yes</td>
                                              <td>
-                                                <i class='bxr  bx-trash tr-can  me-4'  ></i> 
-                                                <i class='bxr  bx-edit tr-edit' ></i> 
+                                                <i class='bxr  bx-trash tr-can '  ></i> 
                                             </td>
                                         </tr>
 
@@ -134,8 +136,7 @@
                                             <td>Edinburgh</td>
                                             <td>No</td>
                                             <td>
-                                                <i class='bxr  bx-trash tr-can  me-4'  ></i> 
-                                                <i class='bxr  bx-edit tr-edit' ></i> 
+                                                <i class='bxr  bx-trash tr-can  '  ></i> 
                                             </td>                                        
                                         </tr>  
                                         <tr>
@@ -145,7 +146,6 @@
                                             <td>Yes</td>
                                              <td>
                                                 <i class='bxr  bx-trash tr-can  me-4'  ></i> 
-                                                <i class='bxr  bx-edit tr-edit' ></i> 
                                             </td>
                                         </tr>
 
@@ -156,9 +156,8 @@
                                             <td>No</td>
                                             <td>
                                                 <i class='bxr  bx-trash tr-can me-4'  ></i> 
-                                                <i class='bxr  bx-edit tr-edit' ></i> 
                                             </td>                                         
-                                        </tr>  
+                                        </tr>   -->
                                     </tbody>
                                 </table>
                             </div>
@@ -201,6 +200,8 @@
             }
             }
             </script>
+
+
 
 
 

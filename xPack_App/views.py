@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.http import HttpResponse
+# from .forms import Registrar 
+from .models import Registrar
+
 
 # Create your views here.
 
@@ -12,8 +15,9 @@ def dashboard(request):
 def registry(request):
         return render(request, 'registry.html')
 
-
+# for the manage devices template
 def devices(request):
+    
     return render(request, 'devices.html')
 
 
@@ -24,4 +28,5 @@ def stats(request):
 def tech(request):
     return render(request, 'tech.html')
 
-
+def add(request):
+    return render(request, 'add.html')
