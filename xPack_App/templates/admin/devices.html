@@ -1,0 +1,110 @@
+{% include 'header.html' %}
+
+{% block content%}
+   <div class="container-fluid">
+                    <div class="mb-3">
+                        <h3 class="fw-bold fs-4 mb-3">Manage Devices</h3>
+                         <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="{% url  'dashboard'%}">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Manage Devices</li>
+                        </ol>
+                    </div>
+              
+                           <!-- Button trigger modal -->
+                            <button type="button" class="reg mb-4">
+                                    <span><i class='bxr  bx-plus'  ></i> </span>
+                                   <span> <a class="text-white" href="{% url 'add' %}">Add Registrar</a> </span>                          
+                            </button>
+
+                            <!-- Modal -->
+                            <!-- <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">New Registrar</h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form class="form" method="POST" action="">
+                                        {% csrf_token %}
+
+                                            <!- Name --
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control focus-ring focus-ring-light" id="name" name="name" placeholder="" autocomplete="off" required>
+                                                    <label for="name">Full Name</label>
+                                                </div>
+
+                                                <!- Contact --
+                                                <div class="form-floating mb-3">
+                                                    <input type="text" class="form-control focus-ring focus-ring-light" id="contact" name="contact" placeholder="" autocomplete="off" required>
+                                                    <label for="name">Contact</label>
+                                                </div>
+
+                                                <-- password --
+                                                <div class="form-floating mb-3">
+                                                    <input type="password" class="form-control focus-ring focus-ring-light" id="user_pwd_reg" name="password" placeholder="" autocomplete="off" required readonly>
+                                                    <label for="email">password</label>
+                                                    <div class="gen-button text-white mt-2 text-center" id="generate_pwd_btn_reg">Generate</div>
+                                                </div>
+
+
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" name="submit" class="reg">Add</button>
+                                        </div>
+                                    </form>
+                                </div>
+                                    
+                            </div>
+                            </div> -->
+
+                            <p>{{ reg_list }}</p>
+                        <div class="card mb-4 border-0 shadow">
+                            <!-- <div class="card-header">
+                                <i class='bxr  bx-table'  ></i> 
+                                    Registry 
+                                </div> -->
+                            <div class="card-body table-responsive">
+                                <table id="example" class="table table-striped tab-siz">
+                                    <thead>
+                                        <tr class="highlight">
+                                            <th>DID</th>
+                                            <th>Name</th>
+                                            <th>Contact</th>
+                                            <th>Password</th>
+                                            <th>Action</th>
+                                        </tr>
+                                       
+                                    </thead>
+                                
+                                    <tbody>
+                                        {%for registrar in registrar_list %}
+                                        <tr>
+                                            <td>{{ forloop.counter }}</td>
+                                            <td>{{ registrar.name }}</td>
+                                            <td>{{ registrar.contact }}</td>
+                                            <td>{{ registrar.password }}</td>
+                                            <td>
+                                                <a class="me-4" href="{% url 'update_registrar' registrar.id %}">
+                                                    <i class='bxr  bx-edit tr-edit'  ></i> 
+                                                </a>
+
+                                                <a href="{% url 'delete_registrar' registrar.id %}">
+                                                    <i class='bxr  bx-trash tr-can'  ></i> 
+                                                </a>
+                                            </td>
+                                        </tr>
+                                         {%endfor%}
+                                     </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+            
+{% endblock%}
+
+
+
+{% include 'footer.html' %}
+
