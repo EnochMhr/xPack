@@ -1,31 +1,29 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponseRedirect
-from ..forms import RegistrarForm
-from ..models import Registrar
+from .forms import RegistrarForm
+from .models import Registrar
+from django.contrib import messages
 
 
 
 
 # Create your views here.
 
-def sayHello(request):
-    return render(request, 'base.html')
-
 def dashboard(request):
-    return render(request, 'admin/dashboard.html')
+    return render(request, 'dashboard.html')
 
 def registry(request):
-    return render(request, 'admin/registry.html')
+    return render(request, 'registry.html')
 
 def devices(request):
     registrar_list = Registrar.objects.all()
-    return render(request, 'admin/devices.html', {'registrar_list': registrar_list})
+    return render(request, 'devices.html', {'registrar_list': registrar_list})
 
 def stats(request):
-    return render(request, 'admin/stats.html')
+    return render(request, 'stats.html')
 
 def tech(request):
-    return render(request, 'admin/tech.html')
+    return render(request, 'tech.html')
 
 def add(request):
     submitted = False
@@ -33,13 +31,15 @@ def add(request):
         form = RegistrarForm(request.POST)
         if form.is_valid():
             form.save()
-        return HttpResponseRedirect('?submitted=True')
+        return HttpResponseRedirect('/xPack_App/add/?submitted=True')
     
     else:
         form = RegistrarForm
         if 'submitted' in request.GET:
             submitted = True
-    return render(request, 'admin/add.html', {'form':form, 'submitted':submitted})
+            messages.success(request, 'Registrar added successfully!') 
+    return render(request, 'add.html', {'form':form, 'submitted':submitted})
+
 
 def delete_registrar(request, id):
     registrar = Registrar.objects.get(pk=id)
@@ -53,4 +53,4 @@ def update_registrar(request, id):
     if form.is_valid():
         form.save()
         return redirect('devices')
-    return render(request, 'admin/update_registrar.html', {'registrar':registrar, 'form':form})
+    return render(request, 'update_registrar.html', {'registrar':registrar, 'form':form})

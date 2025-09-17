@@ -1,4 +1,5 @@
-{% include 'header.html' %}
+{% extends 'base.html' %}
+{% block title%}Registry{% endblock%}
 
 {% block content%}
     <div class="container-fluid">
@@ -11,10 +12,6 @@
                     </div>
               
                             <div class="card mb-4 border-0 shadow">
-                            <!-- <div class="card-header">
-                                <i class='bxr  bx-table'  ></i> 
-                                    Registry 
-                                </div> -->
                             <div class="card-body table-responsive">
                                 <table id="example" class="table table-striped tab-siz">
                                     <thead>
@@ -55,4 +52,4 @@
 {% endblock%}
 
 
-{% include 'footer.html' %}
+
