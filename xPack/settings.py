@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'xPack_App',
     'xPack_Registrar',
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -106,6 +107,9 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
+
+
+CRISPY_TEMPLATE_PACK = 'bootstrap5'
 
 
 # Internationalization

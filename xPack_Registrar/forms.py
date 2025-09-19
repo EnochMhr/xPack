@@ -11,14 +11,15 @@ class RegistryForm(forms.ModelForm):
             'contact': '',
             'membership':'',
             'family':'',
+            'gender': '',
+            'location': '',
         }
 
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control focus-ring focus-ring-light', 'placeholder': 'Full Name'}),
             'contact': forms.TextInput(attrs={'class': 'form-control focus-ring focus-ring-light', 'placeholder': 'Contact'}),
-        #     'membership': forms.Select(attrs={'class': 'form-select', 'placeholder':'Membership Type', 'selected': 'Membership Type'}),
-        #     'family': forms.Select(attrs={'class': 'form-select'}),
-        }
+            'location': forms.TextInput(attrs={'class': 'form-control focus-ring focus-ring-light', 'placeholder': 'location'}),
+         }
 
 class FamilyForm(forms.ModelForm):
     class Meta:
@@ -35,3 +36,17 @@ class FamilyForm(forms.ModelForm):
             'contact': forms.TextInput(attrs={'class': 'form-control focus-ring focus-ring-light', 'placeholder': 'Contact'}),
             'family_rep': forms.TextInput(attrs={'class': 'form-control focus-ring focus-ring-light', 'placeholder': 'Family Representative'}),
         }
+
+# class Reg_Login_Form(forms.ModelForm):
+#     class Meta:
+#         model = Reg_Login
+#         fields = ('__all__')
+#         labels = {
+#             'username': '',
+#             'password': '',
+#         }
+
+#         widgets = {
+#             'username': forms.TextInput(attrs={'class': 'form-control focus-ring focus-ring-light'}),
+#             'password': forms.PasswordInput(attrs={'class': 'form-control focus-ring focus-ring-light'})
+#         }

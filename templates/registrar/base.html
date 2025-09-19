@@ -52,9 +52,9 @@
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link">
-                        <i class='bx bx-toggle-left  '></i>
-                        <span>Dark Theme</span>
+                    <a href="{% url 'rejected' %}" class="sidebar-link">
+                        <i class='bx bx-no-entry  '></i>
+                        <span>Packages Rejected</span>
                     </a>
                 </li>
             </ul>
@@ -88,8 +88,8 @@
                                     <span>Edit Profile</span>
                                 </a>
 
-                                <a href="" class="dropdown-item">
-                                    <i class='bxr  bx-arrow-out-left-square-half'  ></i> 
+                                <a href="{% url 'user-logout' %}" class="dropdown-item">
+                                    <i class='bxr  bx-arrow-out-left-square-half'  ></i>
                                     <span>logout</span>
                                 </a>
                                 <div class="dropdown-divider"></div>

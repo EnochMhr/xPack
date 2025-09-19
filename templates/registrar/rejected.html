@@ -1,14 +1,14 @@
 {% extends 'registrar/base.html' %}
-{% block title %} Packages Served {% endblock %}
+{% block title %} Packages Rejected {% endblock %}
 
 {% block content %}
 
     <div class="container-fluid">
                    <div class="mb-3">
-                        <h3 class="fw-bold fs-4 mb-3">Packages Served</h3>
+                        <h3 class="fw-bold fs-4 mb-3">Packages Rejected</h3>
                          <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item"><a href="{% url  'reg_dashboard'%}">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Packages Served</li>
+                            <li class="breadcrumb-item active">Packages Rejected</li>
                         </ol>
                     </div>
 
@@ -21,19 +21,17 @@
                                             <th>PID</th>
                                             <th>Name</th>
                                             <th>Contact</th>
-                                            <th>Location</th>
                                             <th>Membership</th>
                                         </tr> 
                                     </thead>
                                 
                                     <tbody>
-                                        {% for package in served_packages %}
+                                        {% for package in rejected_packages %}
                                         <tr>
                                             <td>{{ package.registry.id }}</td>
                                             <td>{{ package.registry.name }}</td>
                                             <td>{{ package.registry.contact }}</td>
-                                            <td>{{ package.registry.location }}</td>
-                                            <td>
+                                            <td>                                                
                                                 <p class="badge {% if package.registry.membership == 'Member' %}text-bg-success{% else %}text-bg-warning{% endif %} text-center">
                                                     {{ package.registry.membership }}
                                                 </p>
@@ -47,7 +45,6 @@
 
 
     </div>
-
 
 
 {% endblock %}

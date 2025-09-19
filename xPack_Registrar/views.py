@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from .forms import RegistryForm, FamilyForm
 from django.contrib import messages
-from .models import Family,Registry
+from .models import Family, Registry, PackageAction
 
 # Create your views here.
 
@@ -18,30 +18,45 @@ def family(request):
     return render(request, 'registrar/family.html', {'fam_member_list': fam_member_list})
 
 def packages(request):
-    return render(request, 'registrar/packages.html')
+    registry_list = Registry.objects.all()
+    return render(request, 'registrar/packages.html', {'registry_list': registry_list})
 
 def served(request):
-    return render(request, 'registrar/served.html')
+    served_packages = PackageAction.objects.filter(action='served').select_related('registry')
+    return render(request, 'registrar/served.html', {'served_packages': served_packages})
+
+def rejected(request):
+    rejected_packages = PackageAction.objects.filter(action='rejected').select_related('registry')
+    return render(request, 'registrar/rejected.html', {'rejected_packages': rejected_packages})
+
+def mark_package_action(request, registry_id, action):
+    try:
+        registry = Registry.objects.get(id=registry_id)
+        PackageAction.objects.create(registry=registry, action=action)
+        messages.success(request, f'Package {action} successfully!')
+    except Registry.DoesNotExist:
+        messages.error(request, 'Registry entry not found.')
+    
+    return HttpResponseRedirect('/xPack_Registrar/packages/')
 
 def reg_tech(request):
     return render(request, 'registrar/reg_tech.html')
 
 def new_entry(request):
     submitted = False
-    registry_form = RegistryForm()
     if request.method == "POST":
-        form = RegistryForm(request.POST)
-        if form.is_valid():
-            form.save()
-        return HttpResponseRedirect('/xPack_Registrar/new_entry/?submitted=True')
-    
+        registry_form = RegistryForm(request.POST)
+        if registry_form.is_valid():
+            registry_form.save()
+            messages.success(request, 'Registered successfully!')
+            return HttpResponseRedirect('/xPack_Registrar/new_entry/?submitted=True')
     else:
-        form = RegistryForm
-        if 'submitted' in request.GET:
-            submitted = True
-            messages.success(request, 'Registered successfully!') 
-    return render(request, 'registrar/new_entry.html', {'registry_form':registry_form, 'submitted':submitted})
-    # return render(request, 'registrar/new_entry.html', {'registry_form': registry_form})
+        registry_form = RegistryForm()
+    
+    if 'submitted' in request.GET:
+        submitted = True
+        
+    return render(request, 'registrar/new_entry.html', {'registry_form': registry_form, 'submitted': submitted})
 
 def family_entry(request):
     submitted = False
@@ -59,3 +74,4 @@ def family_entry(request):
             messages.success(request, 'Registered successfully!') 
     return render(request, 'registrar/family_entry.html', {'family_form':family_form, 'submitted':submitted})
     # return render(request, 'registrar/family_entry.html', {'family_form': family_form})
+    

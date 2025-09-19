@@ -21,6 +21,8 @@
                                             <th>Contact</th>
                                             <th>Family</th>
                                             <th>Membership</th>
+                                            <th>Gender</th>
+                                            <th>Location</th>
                                         </tr>
                                     </thead>
                                 
@@ -40,6 +42,8 @@
                                                 <p class="badge text-bg-secondary text-center">{{ entry.membership }}</p>
                                                 {% endif %}
                                             </td>
+                                            <td>{{ entry.gender }}</td>
+                                            <td>{{ entry.location }}</td>
                                         </tr>
                                         {% empty %}
                                         <tr>

@@ -10,7 +10,7 @@
                             <li class="breadcrumb-item"><a href="{% url  'reg_dashboard'%}">Dashboard</a></li>
                             <li class="breadcrumb-item active">Package Give Out</li>
                         </ol>
-                    </div>
+                    </div> 
 
 
            <div class="card mb-4 border-0 shadow">
@@ -27,36 +27,23 @@
                                     </thead>
                                 
                                     <tbody>
+                                        {% for registry in registry_list %}
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>Yes</td>
+                                            <td>{{ registry.id }}</td>
+                                            <td>{{ registry.name }}</td>
+                                            <td>{{ registry.contact }}</td>
+                                            <td>{{ registry.membership }}</td>
                                             <td>
-                                                <a class="me-4" href="">
-                                                    <i class='bxr  bx-donate-heart text-success tr-give'  ></i> 
+                                                <a class="me-4" href="{% url 'mark_package_action' registry.id 'served' %}">
+                                                    <i class='bxr  bx-donate-heart text-success tr-give'  ></i>
                                                 </a>
 
-                                                <a href="">
-                                                    <i class='bxr  bx-no-entry tr-can'  ></i> 
+                                                <a href="{% url 'mark_package_action' registry.id 'rejected' %}">
+                                                    <i class='bxr  bx-no-entry tr-can'  ></i>
                                                 </a>
                                             </td>
                                         </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>No</td>
-                                            <td>
-                                                <a class="me-4" href="">
-                                                    <i class='bxr  bx-donate-heart text-success tr-give'  ></i> 
-                                                </a>
-
-                                                <a href="">
-                                                    <i class='bxr  bx-no-entry tr-can'  ></i> 
-                                                </a>
-                                            </td>
-                                        </tr>
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>

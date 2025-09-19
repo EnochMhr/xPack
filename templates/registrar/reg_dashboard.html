@@ -35,6 +35,8 @@
                                             <th>Contact</th>
                                             <th>Family</th>
                                             <th>Membership</th>
+                                            <th>Gender</th>
+                                            <th>Location</th>
                                         </tr>
                                     </thead>
                                 
@@ -46,11 +48,11 @@
                                             <td>{{new_entry.contact}}</td>
                                             <td>
                                                 {% if new_entry.family == 'Yes' %}
-                                                    <p class="badge text-bg-info text-center">Yes</p>
+                                                    <p>Yes</p>
                                                 {% elif new_entry.family == 'No' %}
-                                                    <p class="badge text-bg-secondary text-center">No</p>
+                                                    <p>No</p>
                                                 {% else %}
-                                                    <p class="badge text-bg-light text-center">Unknown</p>
+                                                    <p>Unknown</p>
                                                 {% endif %}
                                             </td>
                                             <td>
@@ -62,6 +64,8 @@
                                                     <p class="badge text-bg-secondary text-center">Unknown</p>
                                                 {% endif %}
                                             </td>
+                                            <td>{{new_entry.gender}}</td>
+                                            <td>{{new_entry.location}}</td>
                                         </tr>
                                         {%endfor%}
                                     </tbody>
