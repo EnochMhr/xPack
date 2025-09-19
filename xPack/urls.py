@@ -19,5 +19,6 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('xPack_App/', include('xPack_App.urls'))
+    path('xPack_App/', include('xPack_App.urls')),
+    path('xPack_Registrar/', include('xPack_Registrar.urls')),
 ]

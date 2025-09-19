@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'dashboard/base.html' %}
 {% block title%}Dashboard{% endblock%}
 
 {% block content%}
@@ -95,7 +95,7 @@
                                     <div class="fw-bold mb-2 d-flex justify-content-between align-items-center">
                                         <div>89</div>
                                         <div class="card-con con-4">
-                                            <i class='bxr  bx-gift'  ></i> 
+                                            <i class='bxr  bx-no-entry'  ></i> 
                                         </div>
                                     </div>
                                     <div class="mb-0">
@@ -133,25 +133,27 @@
                                     </thead>
                                 
                                     <tbody>
+                                        {% for entry in entry_list %}
                                         <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>Yes</td>
+                                            <td>{{ entry.id }}</td>
+                                            <td>{{ entry.name }}</td>
+                                            <td>{{ entry.contact }}</td>
+                                            <td>{{ entry.family }}</td>
                                             <td>
+                                                {% if entry.membership == 'Member' %}
                                                 <p class="badge text-bg-success text-center">Member</p>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>No</td>
-                                            <td>
+                                                {% elif entry.membership == 'Visitor' %}
                                                 <p class="badge text-bg-warning text-center">Visitor</p>
+                                                {% else %}
+                                                <p class="badge text-bg-secondary text-center">{{ entry.membership }}</p>
+                                                {% endif %}
                                             </td>
                                         </tr>
-                                        
+                                        {% empty %}
+                                        <tr>
+                                            <td colspan="5" class="text-center">No entries found</td>
+                                        </tr>
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>

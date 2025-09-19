@@ -1,0 +1,31 @@
+{% extends 'registrar/base.html' %}
+{% block title %} New Entry {% endblock %}
+
+
+{% block content %}
+
+    <div class="container-fluid">
+                   <div class="mb-3">
+                        <h3 class="fw-bold fs-4 mb-3">Family Member</h3>
+                         <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="{% url  'reg_dashboard'%}">Dashboard</a></li>
+                            <li class="breadcrumb-item active">Family Member</li>
+                        </ol>
+                    </div>
+
+                    
+                        <h3 class="text-center mb-4">Family Member</h3>
+                        <div class="shadow mt-3 p-5 mx-auto container">
+                            <form action="" method="POST">
+                                {% csrf_token %}
+
+                                {{family_form.as_p}}
+
+                                <div class="d-flex justify-content-center align-items-center mt-5">
+                                    <input type="submit" value="Save" class="reg px-5" >
+                                </div>
+
+                            </form>
+                        </div>
+
+{% endblock %}

@@ -1,0 +1,168 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Registrar{% endblock %}</title>
+    <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    
+</head>
+<body>
+    <div class="wrapper">
+        <aside id="sidebar">
+            <div class="d-flex justify-content-between p-4">
+                <div class="sidebar-logo">
+                    <span>
+                        <i class='bx  bx-gift logo-gift'  ></i> 
+                    </span>
+                    <a href="">xPack</a>
+                </div>
+                <button class="toggle-btn border-0 ms-2" type="button">
+                    <i id="icon" class='bx  bx-chevrons-right'  ></i>  
+                </button>
+            </div>
+
+            <ul class="sidebar-nav">
+                <li class="sidebar-item">
+                    <a href="{% url 'reg_dashboard' %}" class="sidebar-link">
+                        <i class='bx bx-dashboard-alt  '></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{% url 'family' %}" class="sidebar-link">
+                        <i class='bx bx-database  '></i>
+                        <span>Family Register</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{% url 'packages' %}" class="sidebar-link">
+                        <i class='bx bx-gift  '></i>
+                        <span>Packages</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{% url 'served' %}" class="sidebar-link">
+                        <i class='bx bx-donate-heart  '></i>
+                        <span>Packages served</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link">
+                        <i class='bx bx-toggle-left  '></i>
+                        <span>Dark Theme</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <a href="{% url 'reg_tech' %}" class="sidebar-link">
+                    <i class='bx bx-help-octagon  '></i>
+                    <span>Tech support</span>
+                </a>
+            </div>
+        </aside>
+
+        <div class="main">
+            <nav class="navbar navbar-expand px-4 py-3">
+                <form action="" class="d-none d-sm-inline-block">
+                    <div class="input-group input-group-navbar">
+                        <input type="text" class="form-control border-0 rounded-0 pe-0 focus-ring focus-ring-light" placeholder="Search..." aria-label="Search">
+                        <button class="btn border-0 rounded-0" type="button">
+                            <i class='bxr bx-search  '></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <a href="" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
+                                <img src="{% static '/images/icons/user.png' %}" alt="avatar" srcset="" class="avatar img-fluid">
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-end rounded-0 border-0 shadow mt-3">
+                                <a href="" class="dropdown-item">
+                                    <i class="bx bx-edit"></i>
+                                    <span>Edit Profile</span>
+                                </a>
+
+                                <a href="" class="dropdown-item">
+                                    <i class='bxr  bx-arrow-out-left-square-half'  ></i> 
+                                    <span>logout</span>
+                                </a>
+                                <div class="dropdown-divider"></div>
+
+                                <a href="" class="dropdown-item">
+                                    <i class='bxr  bx-message-circle-question-mark'  ></i>  
+                                    <span>Help Center</span>
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main class="content px-3 py-4">
+                {% block content%}
+
+                {% endblock %}
+
+            </main>
+            
+
+
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row text-body-secondary">
+                        <div class="col-6 text-start d-flex">
+                            <a href="" class="text-body-secondary text-decoration-none">
+                                <strong>xPack <sup>&copy;</sup></strong>
+                            </a>
+
+                            <p class="mx-2 d-none d-md-block">|</p>
+
+                            <span class="opt d-none d-md-block">a product of mHrTech</span>
+                        </div>
+
+                         <div class="col-6 text-end text-body-secondary d-none d-md-block">
+
+                           <ul class="list-inline mb-0 opt">
+                                <li class="list-inline-item">
+                                    <a href="" class="text-body-secondary">Contact</a>
+                                </li>
+
+                                <li class="list-inline-item">
+                                    <a href="" class="text-body-secondary">About</a>
+                                </li>
+
+                                <li class="list-inline-item">
+                                    <a href="" class="text-body-secondary">Terms & Conditions</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+
+
+
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/scripts.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.3.3/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.3.3/js/dataTables.bootstrap5.js"></script>  
+   
+        
+    <script>
+        new DataTable('#example',{ lengthMenu: [5, 10, 25, 50, -1]});
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,63 @@
+{% extends 'registrar/base.html' %}
+{% block title %} New Entry {% endblock %}
+
+
+{% block content %}
+
+    <div class="container-fluid">
+                   <div class="mb-3">
+                        <h3 class="fw-bold fs-4 mb-3">New Entry</h3>
+                         <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item"><a href="{% url  'reg_dashboard'%}">Dashboard</a></li>
+                            <li class="breadcrumb-item active">New Entry</li>
+                        </ol>
+                    </div>
+
+                    
+                        <h3 class="text-center mb-4">New Entry</h3>
+                        <div class="shadow mt-3 p-5 mx-auto container">
+                            <form action="" method="POST">
+                                {% csrf_token %}
+
+                                <div class="mb-3">
+                                    <label for="{{ registry_form.name.id_for_label }}" class="form-label">Full Name</label>
+                                    {{ registry_form.name }}
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="{{ registry_form.contact.id_for_label }}" class="form-label">Contact</label>
+                                    {{ registry_form.contact }}
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="{{ registry_form.membership.id_for_label }}" class="form-label">Membership Type</label>
+                                    <select name="{{ registry_form.membership.name }}" id="{{ registry_form.membership.id_for_label }}" class="form-select focus-ring focus-ring-light">
+                                        <option value="" selected disabled>Select Membership Type</option>
+                                        {% for value, label in registry_form.membership.field.choices %}
+                                            {% if value %}
+                                                <option value="{{ value }}">{{ label }}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <label for="{{ registry_form.family.id_for_label }}" class="form-label">Has Family?</label>
+                                    <select name="{{ registry_form.family.name }}" id="{{ registry_form.family.id_for_label }}" class="form-select focus-ring focus-ring-light">
+                                        <option value="" selected disabled>Select Family Status</option>
+                                        {% for value, label in registry_form.family.field.choices %}
+                                            {% if value %}
+                                                <option value="{{ value }}">{{ label }}</option>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </select>
+                                </div>
+
+                                <div class="d-flex justify-content-center align-items-center mt-5">
+                                    <input type="submit" value="Save" class="reg px-5" >
+                                </div>
+
+                            </form>
+                        </div>
+
+{% endblock %}

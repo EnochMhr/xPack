@@ -9,24 +9,28 @@ from django.contrib import messages
 
 # Create your views here.
 
-def dashboard(request):
-    return render(request, 'dashboard.html')
+def admin_dashboard(request):
+    from xPack_Registrar.models import Registry
+    entry_list = Registry.objects.all()
+    return render(request, 'dashboard/admin_dashboard.html', {'entry_list': entry_list})
 
 def registry(request):
-    return render(request, 'registry.html')
+    from xPack_Registrar.models import Registry
+    entry_list = Registry.objects.all()
+    return render(request, 'dashboard/registry.html', {'entry_list': entry_list})
 
 def devices(request):
     registrar_list = Registrar.objects.all()
-    return render(request, 'devices.html', {'registrar_list': registrar_list})
+    return render(request, 'dashboard/devices.html', {'registrar_list': registrar_list})
 
 def stats(request):
-    return render(request, 'stats.html')
+    return render(request, 'dashboard/stats.html')
 
-def tech(request):
-    return render(request, 'tech.html')
+def dash_tech(request):
+    return render(request, 'dashboard/dash_tech.html')
 
 def add(request):
-    submitted = False
+    submitted = False 
     if request.method == "POST":
         form = RegistrarForm(request.POST)
         if form.is_valid():
@@ -38,7 +42,7 @@ def add(request):
         if 'submitted' in request.GET:
             submitted = True
             messages.success(request, 'Registrar added successfully!') 
-    return render(request, 'add.html', {'form':form, 'submitted':submitted})
+    return render(request, 'dashboard/add.html', {'form':form, 'submitted':submitted})
 
 
 def delete_registrar(request, id):
@@ -53,4 +57,4 @@ def update_registrar(request, id):
     if form.is_valid():
         form.save()
         return redirect('devices')
-    return render(request, 'update_registrar.html', {'registrar':registrar, 'form':form})
+    return render(request, 'dashboard/update_registrar.html', {'registrar':registrar, 'form':form})
