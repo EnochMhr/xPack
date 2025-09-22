@@ -77,18 +77,18 @@ WSGI_APPLICATION = 'xPack.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 import os
-from dotenv import load_dotenv
+# from dotenv import load_dotenv
 
-load_dotenv()
+# load_dotenv()
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': os.getenv('DB_HOST'),
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USER'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'PORT': os.getenv('DB_PORT'),
+        'HOST': 'aws-1-eu-north-1.pooler.supabase.com',
+        'NAME': 'postgres',
+        'USER': 'postgres.asdvensynlyljflihgnz',
+        'PASSWORD': 'xPack77@3?Tech',
+        'PORT': 5432,
         'POOL MODE': 'transaction',
     }
 }
