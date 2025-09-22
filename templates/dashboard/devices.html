@@ -17,48 +17,6 @@
                                    <span> <a class="text-white" href="{% url 'add' %}">Add Registrar</a> </span>                          
                             </button>
 
-                            <!-- Modal -->
-                            <!-- <div class="modal fade " id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                    <h1 class="modal-title fs-5" id="staticBackdropLabel">New Registrar</h1>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <form class="form" method="POST" action="">
-                                        {% csrf_token %}
-
-                                            <!- Name --
-                                                <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control focus-ring focus-ring-light" id="name" name="name" placeholder="" autocomplete="off" required>
-                                                    <label for="name">Full Name</label>
-                                                </div>
-
-                                                <!- Contact --
-                                                <div class="form-floating mb-3">
-                                                    <input type="text" class="form-control focus-ring focus-ring-light" id="contact" name="contact" placeholder="" autocomplete="off" required>
-                                                    <label for="name">Contact</label>
-                                                </div>
-
-                                                <-- password --
-                                                <div class="form-floating mb-3">
-                                                    <input type="password" class="form-control focus-ring focus-ring-light" id="user_pwd_reg" name="password" placeholder="" autocomplete="off" required readonly>
-                                                    <label for="email">password</label>
-                                                    <div class="gen-button text-white mt-2 text-center" id="generate_pwd_btn_reg">Generate</div>
-                                                </div>
-
-
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" name="submit" class="reg">Add</button>
-                                        </div>
-                                    </form>
-                                </div>
-                                    
-                            </div>
-                            </div> -->
 
                             <p>{{ reg_list }}</p>
                         <div class="card mb-4 border-0 shadow">

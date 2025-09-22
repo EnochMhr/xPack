@@ -27,14 +27,14 @@
                                     </thead>
                                 
                                     <tbody>
-                                        {%for fam_member in fam_member_list %}
+                                        {% for fam_member in fam_member_list %}
                                         <tr>
                                             <td>{{forloop.counter}}</td>
                                             <td>{{fam_member.name}}</td>
                                             <td>{{fam_member.contact}}</td>
                                             <td>{{fam_member.family_rep}}</td>
                                         </tr>
-                                        {%endfor%}
+                                        {% endfor %}
                                     </tbody>
                                 </table>
                             </div>

@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'xPack_App',
     'xPack_Registrar',
-    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -77,18 +76,34 @@ WSGI_APPLICATION = 'xPack.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'HOST': 'aws-1-eu-north-1.pooler.supabase.com' ,
-        'NAME': 'postgres',
-        'USER': 'postgres.asdvensynlyljflihgnz',
-        'PASSWORD': 'xPack77@3?Tech',
-        'PORT': 6543,
+        'HOST': os.getenv('DB_HOST'),
+        'NAME': os.getenv('DB_NAME'),
+        'USER': os.getenv('DB_USER'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'PORT': os.getenv('DB_PORT'),
         'POOL MODE': 'transaction',
     }
 }
 
+
+# Authentication settings
+LOGIN_REDIRECT_URL = '/xPack_App/dashboard/'  # For xPack_App admin users
+REGISTRAR_LOGIN_REDIRECT_URL = '/xPack_Registrar/dashboard/'  # For registrar users
+LOGIN_URL = '/'  # Root URL is now the custom login
+LOGOUT_REDIRECT_URL = '/'
+
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',  # Default backend first for Django admin
+    'xPack_App.auth_backend.XPackAuthBackend',  # Custom backend for app users
+]
 
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators

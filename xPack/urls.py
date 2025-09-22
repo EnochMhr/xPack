@@ -16,12 +16,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib.auth import views as auth_views
+from xPack_App.auth_views import custom_login, custom_logout
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls),  # Keep original admin URL
     path('xPack_App/', include('xPack_App.urls')),
     path('xPack_Registrar/', include('xPack_Registrar.urls')),
-    path('login/', auth_views.LoginView.as_view(template_name='registrar/login.html'), name='user-login'),
-    path('logout/', auth_views.LogoutView.as_view(), name='user-logout'),
+    path('', custom_login, name='login'),  # Custom login view as root URL
+    path('logout/', custom_logout, name='logout'),  # Use our custom logout view
 ]

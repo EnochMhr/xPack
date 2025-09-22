@@ -18,24 +18,27 @@ class Registry(models.Model):
         ('Female', 'Female')
     ]
 
-    name = models.CharField(max_length= 20, null=True)
+    name = models.CharField(max_length=20, null=True)
     contact = models.CharField(max_length=20, null=True)
     membership = models.CharField(max_length=10, choices=mem_type, null=True)
-    family = models.CharField(max_length=10, choices=has_family,  null=True)
+    family = models.CharField(max_length=10, choices=has_family, null=True)
     gender = models.CharField(max_length=10, null=True, choices=GENDER_CHOICES)
     location = models.CharField(max_length=20, null=True)
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Family(models.Model):
-     name = models.CharField(max_length= 20, null=True)
-     contact = models.CharField(max_length=20, null=True)
-     family_rep = models.CharField(max_length=20, null=True)
-    #  created_at = models.DateTimeField(auto_now_add=True)
+    name = models.CharField(max_length=20, null=True)
+    contact = models.CharField(max_length=20, null=True)
+    family_rep = models.CharField(max_length=20, null=True)  # Keep as simple CharField for now
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
 
-    # we may use this to reference the main table
-        # family_rep = models.ForeignKey(Registry, on_delete=models.CASCADE) 
-    # this should reference the family member registered
+    def __str__(self):
+        return self.name
+
 
 # class Reg_Login(models.Model):
 #     username = models.CharField(max_length=10, null=True)

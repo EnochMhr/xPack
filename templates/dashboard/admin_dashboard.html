@@ -19,17 +19,17 @@
                                         Members
                                     </h6>
                                     <div class="fw-bold mb-2 d-flex justify-content-between align-items-center">
-                                        <div>89</div>
+                                        <div>{{ members_count }}</div>
                                         <div class="card-con con-1">
                                             <i class='bxr  bx-user'  ></i> 
                                         </div>
                                     </div>
                                     <div class="mb-0">
                                         <span class="badge text-success me-2">
-                                            +9.0%
+                                            +{{ growth_percentage }}%
                                         </span>
                                         <span class="fw-bold rec">
-                                            2025
+                                            {{ year }}
                                         </span>
                                     </div>
                                 </div>
@@ -43,17 +43,17 @@
                                        Visitors
                                     </h6>
                                     <div class="fw-bold mb-2 d-flex justify-content-between align-items-center">
-                                        <div>89</div>
+                                        <div>{{ visitors_count }}</div>
                                         <div class="card-con con-2">
                                             <i class='bxr  bx-user'  ></i> 
                                         </div>
                                     </div>
                                     <div class="mb-0">
-                                        <span class="badge text-success me-2">
-                                            +9.0%
+                                        <span class="badge text-secondary me-2">
+                                            Total
                                         </span>
                                         <span class="fw-bold rec">
-                                            2025
+                                            {{ year }}
                                         </span>
                                     </div>
                                 </div>
@@ -68,17 +68,14 @@
                                         Served Packages
                                     </h6>
                                     <div class="fw-bold mb-2 d-flex justify-content-between align-items-center">
-                                        <div>89</div>
+                                        <div>{{ served_count }}</div>
                                         <div class="card-con con-3">
                                             <i class='bxr  bx-gift'  ></i> 
                                         </div>
                                     </div>
                                     <div class="mb-0">
-                                        <!-- <span class="badge text-success me-2">
-                                            +9.0%
-                                        </span> -->
                                         <span class="fw-bold rec text-success">
-                                            recorded today
+                                            total served packages
                                         </span>
                                     </div>
                                 </div>
@@ -93,7 +90,7 @@
                                         Rejected packs
                                     </h6>
                                     <div class="fw-bold mb-2 d-flex justify-content-between align-items-center">
-                                        <div>89</div>
+                                        <div>{{ rejected_count }}</div>
                                         <div class="card-con con-4">
                                             <i class='bxr  bx-no-entry'  ></i> 
                                         </div>
@@ -121,7 +118,7 @@
                                     Registry 
                                 </div> -->
                             <div class="card-body table-responsive">
-                                <table id="example" class="table table-striped tab-siz">
+                                <table id="registryTable" class="table table-striped tab-siz">
                                     <thead>
                                         <tr class="highlight">
                                             <th>RID</th>
@@ -155,6 +152,15 @@
                                         </tr>
                                         {% endfor %}
                                     </tbody>
+                                    <!-- <tfoot>
+                                        <tr class="highlight">
+                                            <th>RID</th>
+                                            <th>Name</th>
+                                            <th>Contact</th>
+                                            <th>Family</th>
+                                            <th>Membership</th>
+                                        </tr>
+                                    </tfoot> -->
                                 </table>
                             </div>
                         </div>
@@ -175,6 +181,77 @@
 
                 </div>
             
-{% endblock%}
+{% endblock %}
 
+{% block extra_scripts %}
+<script>
+    $(document).ready(function() {
+        // Simple DataTable initialization
+        $('#registryTable').DataTable({
+            pageLength: 5,
+            lengthMenu: [[5, 10, 25, 50], [5, 10, 25, 50]],
+            order: [[0, 'desc']], // Sort by ID descending by default
+            searching: true,
+            info: true,
+            paging: true
+        });
 
+        // Initialize the time-series chart with data from Django context
+        // Parse the Django template variable containing chart data
+        var chartData;
+        try {
+            chartData = JSON.parse('{{ chart_data|escapejs }}');
+        } catch (e) {
+            console.error('Error parsing chart data:', e);
+            chartData = { intervals: [], members: [], visitors: [] };
+        }
+
+        // Create the chart with the parsed data
+        new Chart(document.getElementById("bar-chart-grouped"), {
+            type: 'bar',
+            data: {
+                labels: chartData.intervals,
+                datasets: [
+                    {
+                        label: "Members",
+                        backgroundColor: "#3e95cd",
+                        data: chartData.members
+                    },
+                    {
+                        label: "Visitors",
+                        backgroundColor: "#8e5ea2",
+                        data: chartData.visitors
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    x: {
+                        title: {
+                            display: true,
+                            text: 'Time (30-minute intervals)'
+                        }
+                    },
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Number of Registrations'
+                        }
+                    }
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Registrations per 30-minute interval'
+                    },
+                    legend: {
+                        position: 'top'
+                    }
+                }
+            }
+        });
+    });
+</script>
+{% endblock extra_scripts %}

@@ -19,7 +19,22 @@
                             <form action="" method="POST">
                                 {% csrf_token %}
 
-                                {{family_form.as_p}}
+                                <div class="mb-3">
+                                    <label for="{{ form.name.id_for_label }}" class="form-label">Name</label>
+                                    {{ family_form.name}}
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="{{ form.contact.id_for_label }}" class="form-label">Contact</label>
+                                    {{ family_form.contact}}
+                                </div>
+
+                                <div class="mb-3">
+                                    <label for="{{ form.family_rep.id_for_label }}" class="form-label">Family Representative</label>
+                                    {{ family_form.family_rep}}
+                                </div>
+
+                                <!-- {{family_form.as_p}} -->
 
                                 <div class="d-flex justify-content-center align-items-center mt-5">
                                     <input type="submit" value="Save" class="reg px-5" >

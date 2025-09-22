@@ -3,20 +3,24 @@ from django.http import HttpResponseRedirect
 from .forms import RegistryForm, FamilyForm
 from django.contrib import messages
 from .models import Family, Registry, PackageAction
+from xPack_App.decorators import xpack_login_required
 
 # Create your views here.
 
 # def base(request):
 #     return render(request, 'registrar/base.html')
 
+@xpack_login_required()
 def reg_dashboard(request):
     entry_list = Registry.objects.all()
     return render(request, 'registrar/reg_dashboard.html', {'entry_list': entry_list})
 
+@xpack_login_required()
 def family(request):
     fam_member_list = Family.objects.all()
     return render(request, 'registrar/family.html', {'fam_member_list': fam_member_list})
 
+@xpack_login_required()
 def packages(request):
     registry_list = Registry.objects.all()
     return render(request, 'registrar/packages.html', {'registry_list': registry_list})
@@ -60,18 +64,24 @@ def new_entry(request):
 
 def family_entry(request):
     submitted = False
-    family_form = FamilyForm()
     if request.method == "POST":
-        form = FamilyForm(request.POST)
-        if form.is_valid():
-            form.save()
-        return HttpResponseRedirect('/xPack_Registrar/family_entry/?submitted=True')
-    
+        family_form = FamilyForm(request.POST)
+        if family_form.is_valid():
+            family_form.save()
+            messages.success(request, 'Family member registered successfully!')
+            return HttpResponseRedirect('/xPack_Registrar/family_entry/?submitted=True')
     else:
-        form = FamilyForm
+        family_form = FamilyForm()
         if 'submitted' in request.GET:
             submitted = True
-            messages.success(request, 'Registered successfully!') 
-    return render(request, 'registrar/family_entry.html', {'family_form':family_form, 'submitted':submitted})
-    # return render(request, 'registrar/family_entry.html', {'family_form': family_form})
+            messages.success(request, 'Family member registered successfully!')
+    
+    # Get list of registered members for context
+    registry_members = Registry.objects.all()
+    
+    return render(request, 'registrar/family_entry.html', {
+        'family_form': family_form,
+        'submitted': submitted,
+        'registry_members': registry_members
+    })
     

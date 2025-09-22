@@ -32,7 +32,15 @@
                                             <td>{{ registry.id }}</td>
                                             <td>{{ registry.name }}</td>
                                             <td>{{ registry.contact }}</td>
-                                            <td>{{ registry.membership }}</td>
+                                           <td>
+                                                {% if registry.membership == 'Member' %}
+                                                <p class="badge text-bg-success text-center">Member</p>
+                                                {% elif registry.membership == 'Visitor' %}
+                                                <p class="badge text-bg-warning text-center">Visitor</p>
+                                                {% else %}
+                                                <p class="badge text-bg-secondary text-center">{{ registry.membership }}</p>
+                                                {% endif %}
+                                            </td>
                                             <td>
                                                 <a class="me-4" href="{% url 'mark_package_action' registry.id 'served' %}">
                                                     <i class='bxr  bx-donate-heart text-success tr-give'  ></i>

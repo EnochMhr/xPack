@@ -24,7 +24,7 @@ class RegistryForm(forms.ModelForm):
 class FamilyForm(forms.ModelForm):
     class Meta:
         model = Family
-        fields = ('__all__')
+        fields = ['name', 'contact', 'family_rep']
         labels = {
             'name': '',
             'contact': '',
@@ -34,7 +34,7 @@ class FamilyForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control focus-ring focus-ring-light', 'placeholder': 'Family Member Name'}),
             'contact': forms.TextInput(attrs={'class': 'form-control focus-ring focus-ring-light', 'placeholder': 'Contact'}),
-            'family_rep': forms.TextInput(attrs={'class': 'form-control focus-ring focus-ring-light', 'placeholder': 'Family Representative'}),
+            'family_rep': forms.TextInput(attrs={'class': 'form-control focus-ring focus-ring-light', 'placeholder': 'Family Representative Name'}),
         }
 
 # class Reg_Login_Form(forms.ModelForm):

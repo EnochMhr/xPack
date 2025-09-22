@@ -81,7 +81,47 @@ li{
     font-size: 12px;
 }
 
+/* Action buttons styling */
+.action-buttons {
+    width: 100%;
+    padding: 0 1rem;
+}
 
+.action-button {
+    flex: 0 1 auto;
+}
+
+.reg {
+    background-color: var(--side-color);
+    border: none;
+    padding: 0.5rem 1.5rem;
+    border-radius: 0.25rem;
+    transition: var(--transition);
+    white-space: nowrap;
+}
+
+.reg:hover {
+    background-color: #5b002f;
+    transform: translateY(-2px);
+    box-shadow: var(--btn-Shadow);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .action-buttons {
+        justify-content: center !important;
+        gap: 1rem !important;
+    }
+    
+    .action-button {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .reg {
+        width: 100%;
+    }
+}
 
 #sidebar{
     width: 90px;
