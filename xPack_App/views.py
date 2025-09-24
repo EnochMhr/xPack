@@ -86,16 +86,24 @@ def registry(request):
     entry_list = Registry.objects.all()
     return render(request, 'dashboard/registry.html', {'entry_list': entry_list})
 
+@xpack_login_required(admin_required=True)
 def devices(request):
     registrar_list = Registrar.objects.all()
     return render(request, 'dashboard/devices.html', {'registrar_list': registrar_list})
 
+@xpack_login_required(admin_required=True)
+def account(request):
+    return render(request, 'dashboard/account.html')
+
+@xpack_login_required(admin_required=True)
 def stats(request):
     return render(request, 'dashboard/stats.html')
 
+@xpack_login_required(admin_required=True)
 def dash_tech(request):
     return render(request, 'dashboard/dash_tech.html')
 
+@xpack_login_required(admin_required=True)
 def add(request):
     submitted = False 
     if request.method == "POST":
@@ -111,12 +119,13 @@ def add(request):
             messages.success(request, 'Registrar added successfully!') 
     return render(request, 'dashboard/add.html', {'form':form, 'submitted':submitted})
 
-
+@xpack_login_required(admin_required=True)
 def delete_registrar(request, id):
     registrar = Registrar.objects.get(pk=id)
     registrar.delete()
     return redirect('devices')
-  
+
+@xpack_login_required(admin_required=True)
 def update_registrar(request, id):
     registrar = Registrar.objects.get(pk=id)
     form = RegistrarForm(request.POST or None, instance=registrar)

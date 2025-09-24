@@ -33,45 +33,59 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
                     <a href="{% url 'admin_dashboard' %}" class="sidebar-link">
-                        <i class='bx bx-dashboard-alt  '></i>
-                        <span>Dashboard</span>
+                        <div class="d-flex align-items-center">
+                            <i class='bx bx-dashboard-alt  '></i>
+                            <span>Dashboard</span>
+                        </div>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a href="{% url 'registry' %}" class="sidebar-link">
-                        <i class='bx bx-database  '></i>
-                        <span>Registry</span>
+                        <div class="d-flex align-items-center">
+                            <i class='bx bx-database  '></i>
+                            <span>Registry</span>
+                        </div>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a href="{% url 'devices' %}" class="sidebar-link">
-                        <i class='bx bx-cog  '></i>
-                        <span>Manage Devices</span>
+                        <div class="d-flex align-items-center">
+                            <i class='bx bx-cog  '></i>
+                            <span>Manage Devices</span>
+                        </div>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a href="{% url 'stats' %}" class="sidebar-link">
-                        <i class='bx bx-chart-trend  '></i>
-                        <span>Stats & Analyses</span>
+                        <div class="d-flex align-items-center">
+                            <i class='bx bx-chart-trend  '></i>
+                            <span>Stats & Analyses</span>
+                        </div>
                     </a>
                 </li>
                 <li class="sidebar-item">
                      <a href="" class="sidebar-link">
-                        <i class="bxs bx-toggle-left"></i>
-                        <span>Dark Theme</span>
+                       <div class="d-flex align-items-center">
+                            <i class='bx bx-toggle-left  '></i>
+                            <span>Dark Theme</span>
+                        </div>
                     </a>
                 </li>
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link">
-                        <i class='bx bx-history  '></i>
-                        <span>Activity Log</span>
+                        <div class="d-flex align-items-center">
+                            <i class='bx bx-history  '></i>
+                            <span>Activity Log</span>
+                        </div>
                     </a>
                 </li>
             </ul>
             <div class="sidebar-footer">
                 <a href="{% url 'dash_tech' %}" class="sidebar-link">
-                    <i class='bx bx-help-octagon  '></i>
-                    <span>Tech support</span>
+                    <div class="d-flex align-items-center">
+                            <i class='bx bx-help-octagon  '></i>
+                            <span>Tech Support</span>
+                        </div>
                 </a>
             </div>
         </aside>
@@ -93,21 +107,27 @@
                                 <img src="{% static 'images/icons/user.png' %}" alt="avatar" srcset="" class="avatar img-fluid">
                             </a>
                             <div class="dropdown-menu dropdown-menu-end rounded-0 border-0 shadow mt-3">
-                                <a href="" class="dropdown-item">
-                                    <i class="bx bx-edit"></i>
-                                    <span>Edit Profile</span>
+                                <a href="{% url 'account' %}" class="dropdown-item">
+                                    <div class="d-flex align-items-center">
+                                        <i class='bx bx-edit  '></i>
+                                        <span class="ms-2">My Account</span>
+                                    </div>
                                 </a>
                                 <a href="{% url 'logout' %}" class="dropdown-item">
-                                    <i class='bxr bx-arrow-out-left-square-half'></i>
-                                    <span>Logout</span>
+                                    <div class="d-flex align-items-center">
+                                        <i class='bxr bx-arrow-out-left-square-half'></i>
+                                        <span class="ms-2">Logout</span>
+                                    </div>
                                 </a>
 
                                 </a>
                                 <div class="dropdown-divider"></div>
 
                                 <a href="" class="dropdown-item">
-                                    <i class='bxr  bx-message-circle-question-mark'  ></i>  
-                                    <span>Help Center</span>
+                                     <div class="d-flex align-items-center">
+                                        <i class='bxr  bx-message-circle-question-mark'  ></i>  
+                                        <span class="ms-2">Help Center</span>
+                                    </div>
                                 </a>
                             </div>
                         </li>

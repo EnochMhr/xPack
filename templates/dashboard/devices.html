@@ -13,8 +13,10 @@
               
                            <!-- Button trigger modal -->
                             <button type="button" class="reg mb-4">
-                                    <span><i class='bxr  bx-plus'  ></i> </span>
-                                   <span> <a class="text-white" href="{% url 'add' %}">Add Registrar</a> </span>                          
+                                <div class="d-flex align-items-center">
+                                    <i class='bxr  bx-plus'  ></i> 
+                                    <a class="text-white ms-2" href="{% url 'add' %}">Add Registrar</a> 
+                                </div>                         
                             </button>
 
 
@@ -43,7 +45,16 @@
                                             <td>{{ forloop.counter }}</td>
                                             <td>{{ registrar.name }}</td>
                                             <td>{{ registrar.contact }}</td>
-                                            <td>{{ registrar.password }}</td>
+                                            <!-- <td>{{ registrar.password }}</td> -->
+                                             <td>
+                                                 <a href="" onclick="printRegistrarPassword('{{ registrar.password }}'); return false;" class="print">
+                                                    <div class="d-flex align-items-center">
+                                                        <i class='bxr  bx-printer'  ></i> 
+                                                        <span class="ms-2">Print</span>
+                                                    </div>
+                                                    
+                                                </a>
+                                             </td>
                                             <td>
                                                 <a class="me-4" href="{% url 'update_registrar' registrar.id %}">
                                                     <i class='bxr  bx-edit tr-edit'  ></i> 
@@ -58,10 +69,7 @@
                                      </tbody>
                                 </table>
                             </div>
+
                         </div>
-
-            
 {% endblock%}
-
-
 
