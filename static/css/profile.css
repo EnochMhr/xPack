@@ -1,0 +1,95 @@
+/* Profile Picture Styles */
+.img-container {
+    position: relative;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid var(--accent-color);
+    background-color: #f8f9fa;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.plus-icon {
+    position: absolute;
+    right: -2px;
+    bottom: 4px;
+    background: var(--accent-color);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16);
+    border: 2px solid white;
+}
+
+.plus-icon:hover {
+    transform: scale(1,1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.plus-icon label {
+    color: white;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    cursor: pointer;
+}
+
+.plus-icon i {
+    font-size: 20px;
+    line-height: 1;
+    display: block;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+    .img-container {
+        width: 100px;
+        height: 100px;
+    }
+}
+
+@media (max-width: 576px) {
+    .img-container {
+        width: 80px;
+        height: 80px;
+    }
+
+    .plus-icon {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* Password Reset Card */
+.pswd {
+    max-width: 800px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.pswd:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.pswd .inner {
+    padding: 1rem 1.5rem;
+}

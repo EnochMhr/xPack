@@ -1,0 +1,91 @@
+{% extends 'dashboard/base.html' %}
+{% load static %}
+{% block title%}My Account{% endblock%}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
+{% block content%}
+<div class="container-fluid">
+    <div class="mb-3">
+        <h3 class="fw-bold fs-4 mb-3">My Account</h3>
+        <ol class="breadcrumb mb-4">
+            <li class="breadcrumb-item"><a href="{% url 'reg_dashboard' %}">Dashboard</a></li>
+            <li class="breadcrumb-item active">My Account</li>
+        </ol>
+    </div>
+
+    <div class="acc d-flex align-content-center justify-content-center mt-5">
+        <form method="POST" enctype="multipart/form-data" id="profile-pic-form">
+            {% csrf_token %}
+            <div class="img-container position-relative">
+                <img src="{% if registrar.profile_pic %}{{ registrar.profile_pic.url }}{% else %}{% static 'images/icons/user.png' %}{% endif %}" alt="Profile picture">
+                <div class="plus-icon position-absolute">
+                    <label for="profile_pic_input" class="mb-0" style="cursor: pointer;">
+                        <i class='bx bx-plus'></i>
+                    </label>
+                </div>
+                <input type="file" name="profile_pic" id="profile_pic_input" accept="image/*" style="display: none;" onchange="this.form.submit()">
+            </div>
+        </form>
+    </div>
+    <h4 class="fw-bold text-center mt-3">{{ user.username }}</h4>
+
+
+     <div class="card border-0 shadow pswd mx-auto mt-5">
+        <div class="d-flex align-content-center justify-content-between inner">
+            <span class="fw-bold d-flex align-items-center">
+                {{registrar.name}}
+            </span> 
+            <span>
+                <i class='bxr  bx-user card-con pwd'  ></i>  
+            </span> 
+        </div>
+    </div>
+
+    <div class="card border-0 shadow pswd mx-auto mt-2">
+        <div class="d-flex align-content-center justify-content-between inner">
+            <span class="fw-bold d-flex align-items-center">
+               (+256) {{registrar.contact}}
+            </span>   
+            <span>
+                <i class='bxr  bx-phone card-con pwd'  ></i>  
+            </span> 
+        </div>
+    </div>
+
+     <div class="card border-0 shadow pswd mx-auto mt-2">
+        <div class="d-flex align-content-center justify-content-between inner">
+            <span class="fw-bold d-flex align-items-center">
+                {{registrar.location}}
+            </span>   
+            <span>
+                <i class='bxr  bx-location-alt-2 card-con pwd'  ></i>  
+            </span> 
+        </div>
+    </div>
+
+                    <a href="">
+                        <div class="card border-0 shadow pswd mx-auto mt-2">
+                            <div class="d-flex align-content-center justify-content-between inner">
+                                <span class="fw-bold d-flex align-items-center">
+                                    Reset password
+                                </span>   
+                                <span>
+                                    <i class='bxr  bx-lock card-con pwd'  ></i>  
+                                </span> 
+                            </div>
+                        </div>
+                    </a>
+                    
+
+
+{% endblock%}
+
+
+
+
+
+
+ 

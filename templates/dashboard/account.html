@@ -1,5 +1,11 @@
 {% extends 'dashboard/base.html' %}
+{% load static %}
 {% block title%}My Account{% endblock%}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/profile.css' %}">
+{% endblock %}
+
 
 {% block content%}
    <div class="container-fluid">
@@ -11,6 +17,25 @@
                         </ol>
                     </div>
 
+                   <div class="acc d-flex align-content-center justify-content-center mt-5">
+                        <div class="img-container position-relative">
+                            <img src="{% static 'images/icons/user.png' %}" alt="Profile picture">
+                            <div class="plus-icon position-absolute">
+                                <a href="#" aria-label="Update profile picture">
+                                    <i class='bx bx-plus'></i>
+                                </a>
+                            </div>
+                        </div>  
+                    </div>
+                <h4 class="fw-bold text-center mt-3">{{ user.username }}</h4>
+                    
 
 
 {% endblock%}
+
+
+
+
+
+
+ 

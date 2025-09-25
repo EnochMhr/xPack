@@ -16,6 +16,9 @@ import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
+# Media files (uploaded files)
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 # Quick-start development settings - unsuitable for production
@@ -62,9 +65,11 @@ TEMPLATES = [
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
+                'django.template.context_processors.debug',
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'xPack_Registrar.context_processors.registrar_context',
             ],
         },
     },
@@ -154,3 +159,10 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+MEDIA_ROOT = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, 'static'),
+)

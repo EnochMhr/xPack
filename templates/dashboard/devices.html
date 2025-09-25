@@ -33,6 +33,8 @@
                                             <th>DID</th>
                                             <th>Name</th>
                                             <th>Contact</th>
+                                            <th>Location</th>
+                                            <th>Dev_Pswd</th>
                                             <th>Password</th>
                                             <th>Action</th>
                                         </tr>
@@ -45,7 +47,9 @@
                                             <td>{{ forloop.counter }}</td>
                                             <td>{{ registrar.name }}</td>
                                             <td>{{ registrar.contact }}</td>
-                                            <!-- <td>{{ registrar.password }}</td> -->
+                                            <td>{{ registrar.location }}</td>
+                                            <!-- for purposes of development i am keeping this password field active -->
+                                            <td>{{ registrar.password }}</td>
                                              <td>
                                                  <a href="" onclick="printRegistrarPassword('{{ registrar.password }}'); return false;" class="print">
                                                     <div class="d-flex align-items-center">

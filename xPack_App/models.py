@@ -15,6 +15,8 @@ class Registrar(models.Model):
     name = models.CharField(max_length=20, null=True)
     contact = models.CharField(max_length=20, null=True)
     password = models.CharField(max_length=20, null=True)
+    location = models.CharField(max_length=20, null=True)
+    profile_pic = models.ImageField(null = True, blank=True, upload_to='images/')
     created_at = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):

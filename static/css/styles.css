@@ -42,6 +42,15 @@ li{
     list-style: none;
 } 
 
+/* Navbar Avatar Styles */
+/* .nav-icon .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent-color);
+    border: 2px solid var(--accent-color);
+}  */
 
 .wrapper{
     display: flex;
@@ -335,6 +344,28 @@ a.sidebar-link:hover{
     }
 }
 
+.acc img{
+    width: 8em;
+}
+
+.img-container {
+    display: inline-block;
+}
+
+.plus-icon {
+    bottom: 14px;
+    right: 10px;
+    transform: translate(25%, 25%);
+}
+
+.plus-icon i {
+    color: var(--accent-color);
+    font-weight: 700;
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 5px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
 
 
 .card{
@@ -392,8 +423,7 @@ a.sidebar-link:hover{
 
 
 .card-con i{
-    color: white;
-    
+    color: white;  
 }
 
 .con-1{
@@ -416,6 +446,21 @@ a.sidebar-link:hover{
 
 }
 
+.pwd{
+    color: var(--side-color);
+    background-color: #f5f5f5;
+    font-weight: 700;
+}
+
+.psrn-info{
+    color: #919191;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.pid{
+    width: 32em;
+}
 .card:hover{
     transform: translateY(-10.5px);
 }

@@ -31,8 +31,10 @@
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
                     <a href="{% url 'reg_dashboard' %}" class="sidebar-link">
-                        <i class='bx bx-dashboard-alt  '></i>
-                        <span>Dashboard</span>
+                        <div class="d-flex align-item-center">
+                             <i class='bx bx-dashboard-alt  '></i>
+                            <span>Dashboard</span>
+                        </div>
                     </a>
                 </li>
                 <li class="sidebar-item">
@@ -72,46 +74,41 @@
             <nav class="navbar navbar-expand px-4 py-3">
                 <form action="" class="d-none d-sm-inline-block">
                     <div class="input-group input-group-navbar">
-                        <input type="text" class="form-control border-0 rounded-0 pe-0 focus-ring focus-ring-light" name="search" placeholder="Search..." aria-label="Search">
+                        <input type="text" class="form-control border-0 rounded-0 pe-0 focus-ring focus-ring-light" placeholder="Search..." aria-label="Search">
                         <button class="btn border-0 rounded-0" type="button">
                             <i class='bxr bx-search  '></i>
                         </button>
                     </div>
                 </form>
-                <div class="navbar-collapse collapse">
+
+               <div class="navbar-collapse collapse">
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item dropdown">
                             <a href="" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-                                <img src="{% static 'images/icons/user.png' %}" alt="avatar" srcset="" class="avatar img-fluid">
+                                <img src="{% static '/images/icons/user.png' %}" alt="avatar" srcset="" class="avatar img-fluid">
                             </a>
                             <div class="dropdown-menu dropdown-menu-end rounded-0 border-0 shadow mt-3">
-                                <a href="" class="dropdown-item">
-                                    <div class="d-flex align-items-center">
-                                        <i class='bx bx-edit  '></i>
-                                        <span class="ms-2">My Account</span>
-                                    </div>
-                                </a>
-                                <a href="{% url 'logout' %}" class="dropdown-item">
-                                    <div class="d-flex align-items-center">
-                                        <i class='bxr bx-arrow-out-left-square-half'></i>
-                                        <span class="ms-2">Logout</span>
-                                    </div>
+                                <a href="{% url 'reg_account' %}" class="dropdown-item">
+                                    <i class="bx bx-edit"></i>
+                                    <span>My Account</span>
                                 </a>
 
+                                <a href="{% url 'logout' %}" class="dropdown-item">
+                                    <i class='bxr  bx-arrow-out-left-square-half'  ></i>
+                                    <span>Logout</span>
                                 </a>
                                 <div class="dropdown-divider"></div>
 
                                 <a href="" class="dropdown-item">
-                                     <div class="d-flex align-items-center">
-                                        <i class='bxr  bx-message-circle-question-mark'  ></i>  
-                                        <span class="ms-2">Help Center</span>
-                                    </div>
+                                    <i class='bxr  bx-message-circle-question-mark'  ></i>  
+                                    <span>Help Center</span>
                                 </a>
                             </div>
                         </li>
                     </ul>
                 </div>
-            </nav> 
+            </nav>
+
             <main class="content px-3 py-4">
                 {% block content%}
 

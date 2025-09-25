@@ -17,6 +17,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from xPack_App.auth_views import custom_login, custom_logout
+from django.conf import settings
+from django.conf.urls.static import static
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),  # Keep original admin URL
@@ -24,4 +27,4 @@ urlpatterns = [
     path('xPack_Registrar/', include('xPack_Registrar.urls')),
     path('', custom_login, name='login'),  # Custom login view as root URL
     path('logout/', custom_logout, name='logout'),  # Use our custom logout view
-]
+] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)

@@ -17,20 +17,21 @@ def xpack_login_required(view_func=None, admin_required=False):
                 try:
                     # Check if user has admin credentials
                     admin_creds = AdminCredentials.objects.get(user=request.user, is_active=True)
+                    # Explicitly check if user is also a registrar and deny access
+                    if Registrar.objects.filter(name=request.user.username).exists():
+                        messages.error(request, 'Registrars cannot access admin pages.')
+                        return redirect('login')
                 except AdminCredentials.DoesNotExist:
                     messages.error(request, 'You must be an admin to access this page.')
                     return redirect('login')
-
-            # For registrar views, check if user is a registrar
+            # For registrar views
             else:
                 try:
                     # Try to get registrar credentials
                     registrar = Registrar.objects.get(name=request.user.username)
                 except Registrar.DoesNotExist:
-                    # If not a registrar and not requesting admin page, redirect
-                    if not admin_required:
-                        messages.error(request, 'You must be a registrar to access this page.')
-                        return redirect('login')
+                    messages.error(request, 'You must be a registrar to access this page.')
+                    return redirect('login')
 
             return view_func(request, *args, **kwargs)
         return _wrapped_view

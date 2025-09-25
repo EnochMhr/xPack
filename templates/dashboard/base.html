@@ -12,8 +12,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"/>
     <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-
-    
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
     <div class="wrapper">
@@ -104,36 +103,30 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item dropdown">
                             <a href="" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
-                                <img src="{% static 'images/icons/user.png' %}" alt="avatar" srcset="" class="avatar img-fluid">
+                                <img src="{% static '/images/icons/user.png' %}" alt="avatar" srcset="" class="avatar img-fluid">
                             </a>
                             <div class="dropdown-menu dropdown-menu-end rounded-0 border-0 shadow mt-3">
                                 <a href="{% url 'account' %}" class="dropdown-item">
-                                    <div class="d-flex align-items-center">
-                                        <i class='bx bx-edit  '></i>
-                                        <span class="ms-2">My Account</span>
-                                    </div>
-                                </a>
-                                <a href="{% url 'logout' %}" class="dropdown-item">
-                                    <div class="d-flex align-items-center">
-                                        <i class='bxr bx-arrow-out-left-square-half'></i>
-                                        <span class="ms-2">Logout</span>
-                                    </div>
+                                    <i class="bx bx-edit"></i>
+                                    <span>My Account</span>
                                 </a>
 
+                                <a href="{% url 'logout' %}" class="dropdown-item">
+                                    <i class='bxr  bx-arrow-out-left-square-half'  ></i>
+                                    <span>Logout</span>
                                 </a>
                                 <div class="dropdown-divider"></div>
 
                                 <a href="" class="dropdown-item">
-                                     <div class="d-flex align-items-center">
-                                        <i class='bxr  bx-message-circle-question-mark'  ></i>  
-                                        <span class="ms-2">Help Center</span>
-                                    </div>
+                                    <i class='bxr  bx-message-circle-question-mark'  ></i>  
+                                    <span>Help Center</span>
                                 </a>
                             </div>
                         </li>
                     </ul>
                 </div>
-            </nav> 
+            </nav>
+ 
 
              <main class="content px-3 py-4">
                {% block content %}
